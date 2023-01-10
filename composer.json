@@ -10,6 +10,6 @@
       "reference": "master"
     },
     "autoload": {
-      "files": ["src/OptionsPages.php"]
+      "files": ["src/OptionPages.php"]
   }
 }
