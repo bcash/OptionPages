@@ -1,6 +1,8 @@
-# RationalOptionPages
+# bcOptionPages
 
 A PHP class for building WordPress Option Pages. Uses multi-dimensional associative arrays to try and make the process of adding option pages a little easier to map out and use.
+
+A private fork of RationalOptionPages (https://github.com/jeremyHixon/RationalOptionPages).  Renamed to prevent conflicts and added composer payload.
 
 ## Table of Contents
 
@@ -15,19 +17,19 @@ A PHP class for building WordPress Option Pages. Uses multi-dimensional associat
 ## Installation
 
 * Download or clone the repo
-* Include `RationalOptionPages.php` in your file
+* Include `bcOptionPages.php` in your file
 * Instantiate the class with your array of pages
 
 ```php
-if ( !class_exists( 'RationalOptionPages' ) ) {
-	require_once('RationalOptionPages.php');
+if ( !class_exists( 'bcOptionPages' ) ) {
+	require_once('bcOptionPages.php');
 }
 $pages = array(
 	'sample-page'	=> array(
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
 	),
 );
-$option_page = new RationalOptionPages( $pages );
+$option_page = new bcOptionPages( $pages );
 ```
 ### Note:
 
@@ -69,7 +71,7 @@ Based on [WordPress' `add_submenu_page()` function](https://developer.wordpress.
 #### Example
 
 ```php
-require_once('RationalOptionPages.php');
+require_once('bcOptionPages.php');
 $pages = array(
 	'sample-page'	=> array(
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
@@ -91,7 +93,7 @@ $pages = array(
 		'page_title'	=> __( 'Sub Theme', 'sample-domain' ),
 	),
 );
-$option_page = new RationalOptionPages( $pages );
+$option_page = new bcOptionPages( $pages );
 ```
 
 ### Sections
@@ -112,7 +114,7 @@ Based on [WordPress' `add_settings_section()` function](https://developer.wordpr
 #### Example
 
 ```php
-require_once('RationalOptionPages.php');
+require_once('bcOptionPages.php');
 $pages = array(
 	'sample-page'	=> array(
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
@@ -130,7 +132,7 @@ $pages = array(
 		),
 	),
 );
-$option_page = new RationalOptionPages( $pages );
+$option_page = new bcOptionPages( $pages );
 ```
 
 ### Fields
@@ -163,7 +165,7 @@ Based on [WordPress' `add_settings_field()` function](https://developer.wordpres
 The most basic of inputs.
 
 ```php
-require_once('RationalOptionPages.php');
+require_once('bcOptionPages.php');
 $pages = array(
 	'sample-page'	=> array(
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
@@ -179,13 +181,13 @@ $pages = array(
 		),
 	),
 );
-$option_page = new RationalOptionPages( $pages );
+$option_page = new bcOptionPages( $pages );
 ```
 
 Almost everything.
 
 ```php
-require_once('RationalOptionPages.php');
+require_once('bcOptionPages.php');
 $pages = array(
 	'sample-page'	=> array(
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
@@ -330,7 +332,7 @@ $pages = array(
 		),
 	),
 );
-$option_page = new RationalOptionPages( $pages );
+$option_page = new bcOptionPages( $pages );
 ```
 
 ## Retrieving Data
