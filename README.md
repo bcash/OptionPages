@@ -20,15 +20,17 @@ A private fork of RationalOptionPages (https://github.com/jeremyHixon/RationalOp
 * Include `OptionPages.php` in your file
 * Instantiate the class with your array of pages
 
+### Example 1
+
 ```php
 if ( !class_exists( 'OptionPages' ) ) {
 	require_once('OptionPages.php');
 }
-$pages = array(
-	'sample-page'	=> array(
+$pages = [
+	'sample-page'	=> [
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
-	),
-);
+	],
+];
 $option_page = new OptionPages( $pages );
 ```
 ### Note:
@@ -68,32 +70,32 @@ Based on [WordPress' `add_submenu_page()` function](https://developer.wordpress.
 * `capability` - The permissions required to access this page. Defaults to `manage_options`.
 * `menu_slug` - The "slug" of the menu item. Defaults to a "slugified" version of the `page_title`.
 
-#### Example
+#### Example 2
 
 ```php
-require_once('OptionPages.php');
-$pages = array(
-	'sample-page'	=> array(
+$pages = [
+	'sample-page'	=> [
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
 		// via the subpages key
-		'subpages'		=> array(
-			'sub-page-one'	=> array(
+		'subpages'		=> [
+			'sub-page-one'	=> [
 				'page_title'	=> __( 'Sub Page One', 'sample-domain' ),
-			),
-		),
-	),
+			],
+		],
+	],
 	// via the pages array itself
-	'sub-page-two'	=> array(
+	'sub-page-two'	=> [
 		'parent_slug'	=> 'sample_page',
 		'page_title'	=> __( 'Sub Page Two', 'sample-domain' ),
-	),
+	],
 	// sub page of the "Appearance" menu item
-	'sub-theme'	=> array(
+	'sub-theme'	=> [
 		'parent_slug'	=> 'themes.php',
 		'page_title'	=> __( 'Sub Theme', 'sample-domain' ),
-	),
-);
+	],
+];
 $option_page = new OptionPages( $pages );
+
 ```
 
 ### Sections
@@ -111,27 +113,26 @@ Based on [WordPress' `add_settings_section()` function](https://developer.wordpr
 * `text` - An option parameter for adding HTML text under the section title.
 * `include` - An option parameter that calls PHP's `include()` under the section title. __Use absolute path__.
 
-#### Example
+#### Example 3
 
 ```php
-require_once('OptionPages.php');
-$pages = array(
-	'sample-page'	=> array(
+$pages = [
+	'sample-page'	=> [
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
-		'sections'		=> array(
-			'section-one'	=> array(
+		'sections'		=> [
+			'section-one'	=> [
 				'title'			=> __( 'Section One', 'sample-domain' ),
 				'text'			=> '<p>' . __( 'Some HTML text to describe the section', 'sample-domain' ) . '</p>',
 				'include'		=> plugin_dir_path( __FILE__ ) . '/your-include.php',
-			),
-			'section-two'	=> array(
+			],
+			'section-two'	=> [
 				'title'			=> __( 'Section Two', 'sample-domain' ),
 				'custom'		=> true,
 				'callback'		=> 'custom_section_callback_function',
-			),
-		),
-	),
-);
+			],
+		],
+	],
+];
 $option_page = new OptionPages( $pages );
 ```
 
@@ -160,178 +161,180 @@ Based on [WordPress' `add_settings_field()` function](https://developer.wordpres
 	* Textarea - `cols, rows and wrap`
 * `sanitize` - A boolean that indicates whether or not the field's value should be sanitized. Defaults to `false`, and doesn't apply to checkboxes.
 	
-#### Examples
+#### Example 4
 
 The most basic of inputs.
 
 ```php
 require_once('OptionPages.php');
-$pages = array(
-	'sample-page'	=> array(
+$pages = [
+	'sample-page'	=> [
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
-		'sections'		=> array(
-			'section-one'	=> array(
+		'sections'		=> [
+			'section-one'	=> [
 				'title'			=> __( 'Section One', 'sample-domain' ),
-				'fields'		=> array(
-					'default'		=> array(
+				'fields'		=> [
+					'default'		=> [
 						'title'			=> __( 'Default', 'sample-domain' ),
-					),
-				),
-			),
-		),
-	),
-);
+					],
+				],
+			],
+		],
+	],
+];
 $option_page = new OptionPages( $pages );
 ```
+
+#### Example 5
 
 Almost everything.
 
 ```php
 require_once('OptionPages.php');
-$pages = array(
-	'sample-page'	=> array(
+$pages = [
+	'sample-page'	=> [
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
-		'sections'		=> array(
-			'section-one'	=> array(
+		'sections'		=> [
+			'section-one'	=> [
 				'title'			=> __( 'Standard Inputs', 'sample-domain' ),
-				'fields'		=> array(
-					'default'		=> array(
+				'fields'		=> [
+					'default'		=> [
 						'title'			=> __( 'Default (text)', 'sample-domain' ),
 						'text'			=> __( 'Text attributes are used as help text for most input types.' ),
-					),
-					'date'			=> array(
+					],
+					'date'			=> [
 						'title'			=> __( 'Date', 'sample-domain' ),
 						'type'			=> 'date',
 						'value'			=> 'now',
-					),
-					'datetime'		=> array(
+					],
+					'datetime'		=> [
 						'title'			=> __( 'Datetime-Local', 'sample-domain' ),
 						'type'			=> 'datetime-local',
 						'value'			=> 'now',
-					),
-					'datetime-local' => array(
+					],
+					'datetime-local' => [
 						'title'			=> __( 'Datetime-Local', 'sample-domain' ),
 						'type'			=> 'datetime-local',
 						'value'			=> 'now',
-					),
-					'email'			=> array(
+					],
+					'email'			=> [
 						'title'			=> __( 'Email', 'sample-domain' ),
 						'type'			=> 'email',
 						'placeholder'	=> 'email.address@domain.com',
-					),
-					'month'			=> array(
+					],
+					'month'			=> [
 						'title'			=> __( 'Month', 'sample-domain' ),
 						'type'			=> 'month',
 						'value'			=> 'now',
-					),
-					'number'		=> array(
+					],
+					'number'		=> [
 						'title'			=> __( 'Number', 'sample-domain' ),
 						'type'			=> 'number',
 						'value'			=> 42,
-					),
-					'password'		=> array(
+					],
+					'password'		=> [
 						'title'			=> __( 'Password', 'sample-domain' ),
 						'type'			=> 'password',
-					),
-					'search'		=> array(
+					],
+					'search'		=> [
 						'title'			=> __( 'Search', 'sample-domain' ),
 						'type'			=> 'search',
 						'placeholder'	=> __( 'Keywords or terms&hellip;', 'sample-domain' ),
-					),
-					'tel'			=> array(
+					],
+					'tel'			=> [
 						'title'			=> __( 'Telephone', 'sample-domain' ),
 						'type'			=> 'tel',
 						'placeholder'	=> '(555) 555-5555',
-					),
-					'time'			=> array(
+					],
+					'time'			=> [
 						'title'			=> __( 'Time', 'sample-domain' ),
 						'type'			=> 'time',
 						'value'			=> 'now',
-					),
-					'url'			=> array(
+					],
+					'url'			=> [
 						'title'			=> __( 'URL', 'sample-domain' ),
 						'type'			=> 'url',
 						'placeholder'	=> 'http://jeremyhixon.com',
-					),
-					'week'			=> array(
+					],
+					'week'			=> [
 						'title'			=> __( 'Week', 'sample-domain' ),
 						'type'			=> 'week',
 						'value'			=> 'now',
-					),
-				),
-			),
-			'section-two'	=> array(
+					],
+				],
+			],
+			'section-two'	=> [
 				'title'			=> __( 'Non-standard Input', 'sample-domain' ),
-				'fields'		=> array(
-					'checkbox'		=> array(
+				'fields'		=> [
+					'checkbox'		=> [
 						'title'			=> __( 'Checkbox', 'sample-domain' ),
 						'type'			=> 'checkbox',
 						'text'			=> __( 'Text attributes are used as labels for checkboxes' ),
-					),
-					'color'			=> array(
+					],
+					'color'			=> [
 						'title'			=> __( 'Color', 'sample-domain' ),
 						'type'			=> 'color',
 						'value'			=> '#cc0000',
-					),
-					'media'			=> array(
+					],
+					'media'			=> [
 						'title'			=> __( 'Media', 'sample-domain' ),
 						'type'			=> 'media',
 						'value'			=> 'http://your-domain.com/wp-content/uploads/2016/01/sample.jpg',
-					),
-					'radio'			=> array(
+					],
+					'radio'			=> [
 						'title'			=> __( 'Radio', 'sample-domain' ),
 						'type'			=> 'radio',
 						'value'			=> 'option-two',
-						'choices'		=> array(
+						'choices'		=> [
 							'option-one'	=> __( 'Option One', 'sample-domain' ),
 							'option-two'	=> __( 'Option Two', 'sample-domain' ),
-						),
-					),
-					'range'			=> array(
+						],
+					],
+					'range'			=> [
 						'title'			=> __( 'Range', 'sample-domain' ),
 						'type'			=> 'range',
 						'value'			=> 75,
-					),
-					'select'		=> array(
+					],
+					'select'		=> [
 						'title'			=> __( 'Select', 'sample-domain' ),
 						'type'			=> 'select',
 						'value'			=> 'option-two',
-						'choices'		=> array(
+						'choices'		=> [
 							'option-one'	=> __( 'Option One', 'sample-domain' ),
 							'option-two'	=> __( 'Option Two', 'sample-domain' ),
-						),
-					),
-					'select-multiple'		=> array(
+						],
+					],
+					'select-multiple'		=> [
 						'title'			=> __( 'Select multiple', 'sample-domain' ),
 						'type'			=> 'select',
-						'value' => array(
-							'option-two'
-						),
-						'choices' => array(
+						'value' => [
+							'option-two',
+						],
+						'choices' => [
 							'option-one' => __( 'Option One', 'sample-domain' ),
 							'option-two' => __( 'Option Two', 'sample-domain' ),
 							'option-three' => __( 'Option Three', 'sample-domain' ),
-						),
-						'attributes' => array(
-							'multiple' => 'multiple'
-						),
-						'sanitize' => true
-					),
-					'textarea'		=> array(
+						],
+						'attributes' => [
+							'multiple' => 'multiple',
+						],
+						'sanitize' => true,
+					],
+					'textarea'		=> [
 						'title'			=> __( 'Textarea', 'sample-domain' ),
 						'type'			=> 'textarea',
 						'value'			=> 'Pellentesque consectetur volutpat lectus, ac molestie lorem molestie nec. Vestibulum in auctor massa. Vivamus convallis nunc quis lacus maximus, non ultricies risus gravida. Praesent ac diam imperdiet, volutpat nisi sed, semper eros. In nec orci hendrerit, laoreet nunc eu, semper magna. Curabitur eu lorem a enim sodales consequat. Vestibulum eros nunc, congue sed blandit in, maximus eu tellus.',
-					),
-					'wp_editor'		=> array(
+					],
+					'wp_editor'		=> [
 						'title'			=> __( 'WP Editor', 'sample-domain' ),
 						'type'			=> 'wp_editor',
 						'value'			=> 'Pellentesque consectetur volutpat lectus, ac molestie lorem molestie nec. Vestibulum in auctor massa. Vivamus convallis nunc quis lacus maximus, non ultricies risus gravida. Praesent ac diam imperdiet, volutpat nisi sed, semper eros. In nec orci hendrerit, laoreet nunc eu, semper magna. Curabitur eu lorem a enim sodales consequat. Vestibulum eros nunc, congue sed blandit in, maximus eu tellus.',
-					),
-				),
-			),
-		),
-	),
-);
+					],
+				],
+			],
+		],
+	],
+];
 $option_page = new OptionPages( $pages );
 ```
 
@@ -343,7 +346,7 @@ Using the example above as a reference:
 
 ```php
 // Get all options for the page
-$options = get_option( 'sample-page', array() );
+$options = get_option( 'sample-page', [] );
 
 // Each field id is a key in the options array
 $date = $options['date'];
