@@ -1,11 +1,11 @@
 {
-    "name": "bcash/bcOptionPages",
+    "name": "bcash/optionpages",
     "type": "library",
     "description": "Simplifies WordPress Options Page for Plugins",
     "license": "MIT",
     "version": "1.1.1",
     "source": {
-        "url": "https://github.com/bcash/bcOptionPages.git",
+        "url": "https://github.com/bcash/OptionPages.git",
         "type": "git",
         "reference": "master"
       }    
