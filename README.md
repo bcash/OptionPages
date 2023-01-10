@@ -1,4 +1,4 @@
-# bcOptionPages
+# OptionPages
 
 A PHP class for building WordPress Option Pages. Uses multi-dimensional associative arrays to try and make the process of adding option pages a little easier to map out and use.
 
@@ -17,19 +17,19 @@ A private fork of RationalOptionPages (https://github.com/jeremyHixon/RationalOp
 ## Installation
 
 * Download or clone the repo
-* Include `bcOptionPages.php` in your file
+* Include `OptionPages.php` in your file
 * Instantiate the class with your array of pages
 
 ```php
-if ( !class_exists( 'bcOptionPages' ) ) {
-	require_once('bcOptionPages.php');
+if ( !class_exists( 'OptionPages' ) ) {
+	require_once('OptionPages.php');
 }
 $pages = array(
 	'sample-page'	=> array(
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
 	),
 );
-$option_page = new bcOptionPages( $pages );
+$option_page = new OptionPages( $pages );
 ```
 ### Note:
 
@@ -71,7 +71,7 @@ Based on [WordPress' `add_submenu_page()` function](https://developer.wordpress.
 #### Example
 
 ```php
-require_once('bcOptionPages.php');
+require_once('OptionPages.php');
 $pages = array(
 	'sample-page'	=> array(
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
@@ -93,7 +93,7 @@ $pages = array(
 		'page_title'	=> __( 'Sub Theme', 'sample-domain' ),
 	),
 );
-$option_page = new bcOptionPages( $pages );
+$option_page = new OptionPages( $pages );
 ```
 
 ### Sections
@@ -114,7 +114,7 @@ Based on [WordPress' `add_settings_section()` function](https://developer.wordpr
 #### Example
 
 ```php
-require_once('bcOptionPages.php');
+require_once('OptionPages.php');
 $pages = array(
 	'sample-page'	=> array(
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
@@ -132,7 +132,7 @@ $pages = array(
 		),
 	),
 );
-$option_page = new bcOptionPages( $pages );
+$option_page = new OptionPages( $pages );
 ```
 
 ### Fields
@@ -165,7 +165,7 @@ Based on [WordPress' `add_settings_field()` function](https://developer.wordpres
 The most basic of inputs.
 
 ```php
-require_once('bcOptionPages.php');
+require_once('OptionPages.php');
 $pages = array(
 	'sample-page'	=> array(
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
@@ -181,13 +181,13 @@ $pages = array(
 		),
 	),
 );
-$option_page = new bcOptionPages( $pages );
+$option_page = new OptionPages( $pages );
 ```
 
 Almost everything.
 
 ```php
-require_once('bcOptionPages.php');
+require_once('OptionPages.php');
 $pages = array(
 	'sample-page'	=> array(
 		'page_title'	=> __( 'Sample Page', 'sample-domain' ),
@@ -332,7 +332,7 @@ $pages = array(
 		),
 	),
 );
-$option_page = new bcOptionPages( $pages );
+$option_page = new OptionPages( $pages );
 ```
 
 ## Retrieving Data

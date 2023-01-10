@@ -7,7 +7,7 @@
  * @author		Jeremy Hixon <jeremy@jeremyhixon.com>
  * @copyright	Copyright (c) 2016
  * @link		http://jeremyhixon.com
- * @version		1.1.1
+ * @version		1.1.2
  */
 
 namespace bc;
