@@ -193,7 +193,7 @@ class OptionPages
     {
         if ($this->media_script) {
             // Load the media uploader script
-            wp_enqueue_script('opmedia', plugins_url('assets/js/opmedia.js', __FILE__ ), ['jquery'], '1.0', true );
+            wp_enqueue_script('opmedia', plugins_url( '../assets/js/opmedia.js', __FILE__ ), ['jquery'], '1.0', true );
         }
     }
 
